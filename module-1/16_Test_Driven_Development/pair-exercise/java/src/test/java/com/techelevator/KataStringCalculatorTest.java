@@ -18,4 +18,5 @@ public class KataStringCalculatorTest {
 		int expectedReturn = 1;
 		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
 	}
+	
 }
