@@ -12,4 +12,10 @@ public class KataStringCalculatorTest {
 		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
 	}
 
+	@Test
+	public void calculator_returns_1_when_passed_a_1() {
+		String inputString = "1";
+		int expectedReturn = 1;
+		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
+	}
 }
