@@ -7,16 +7,20 @@ import java.util.List;
 public class KataStringCalculator {
 	public static int add(String numbers) {
 		int sum = 0;
-		
 		List<String> splitNumbersList = new ArrayList<>();
-		// split by comma first
-		String[] commaSplits = numbers.split(",");
-		// now go through split array to split by newline
-		for( String commaSplit : commaSplits ) {
-			String[] newlineSplits = commaSplit.split("\n");
-			// add to arraylist
-			splitNumbersList.addAll(Arrays.asList(newlineSplits));
+		
+		if (numbers.startsWith("//") && numbers.length() > 5) {
+			char delimiter = numbers.charAt(2);
+			numbers.replace(delimiter, ',');
+			numbers = numbers.substring(5);
+		} 
+		
+		if (numbers.contains("\n")) {
+			numbers.replaceAll("\n", ",");
 		}
+		 
+		String[] commaSplits = numbers.split(",");
+		splitNumbersList.addAll(Arrays.asList(commaSplits));
 		
 		if (numbers.trim().equals("")) {
 			return 0;
