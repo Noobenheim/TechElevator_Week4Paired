@@ -18,5 +18,11 @@ public class KataStringCalculatorTest {
 		int expectedReturn = 1;
 		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
 	}
-	
+
+	@Test
+	public void calculator_returns_sum_of_two_numbers_in_string() {
+		String inputString = "2, 3";
+		int expectedReturn = 5;
+		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
+	}
 }
