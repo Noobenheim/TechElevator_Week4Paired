@@ -25,4 +25,11 @@ public class KataStringCalculatorTest {
 		int expectedReturn = 5;
 		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
 	}
+	
+	@Test
+	public void calculator_returns_sum_of_three_numbers_in_string() {
+		String inputString = "5, 7, 12";
+		int expectedReturn = 24;
+		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
+	}
 }
