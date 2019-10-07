@@ -32,4 +32,11 @@ public class KataStringCalculatorTest {
 		int expectedReturn = 24;
 		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
 	}
+	
+	@Test
+	public void calculator_works_when_numbers_are_split_by_newLine_and_commas() {
+		String inputString = "5\n7,12";
+		int expectedReturn = 24;
+		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
+	}
 }
