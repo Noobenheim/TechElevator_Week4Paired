@@ -39,4 +39,11 @@ public class KataStringCalculatorTest {
 		int expectedReturn = 24;
 		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
 	}
+	
+	@Test
+	public void calculator_works_when_numbers_are_split_by_custom_delimiter() {
+		String inputString = "//;\\n1;2";
+		int expectedReturn = 3;
+		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
+	}
 }
