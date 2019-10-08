@@ -5,6 +5,8 @@ public class NumbersToWords {
 		String numWord = "";
 		if (number == 0) {
 			numWord = "zero";
+		} else if( number == 1 ) {
+			numWord = "one";
 		}
 		return numWord;
 	}
