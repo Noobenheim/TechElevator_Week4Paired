@@ -33,4 +33,12 @@ public class NumbersToWordsTest {
 	public void method_returns_nine_thousand_three_hundred_forty_seven_for_9347() {
 		Assert.assertEquals("nine thousand three hundred and forty-seven", NumbersToWords.numbersToWords(9347));
 	}
+	@Test
+	public void method_returns_four_hundred_and_ninety_one_thousand_three_hundred_forty_seven_for_491347() {
+		Assert.assertEquals("four hundred and ninety-one thousand three hundred and forty-seven", NumbersToWords.numbersToWords(491347));
+	}
+	@Test
+	public void method_returns_thirty_one_thousand_for_31000() {
+		Assert.assertEquals("thirty-one thousand", NumbersToWords.numbersToWords(31000));
+	}
 }
