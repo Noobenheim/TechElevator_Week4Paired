@@ -11,8 +11,10 @@ public class NumbersToWords {
 			numWord = lessThanTwentyConvert(number);
 		} else if ( number < 100 ) {
 			numWord = tensPlaceConvert(number);
-		} else if (number > 100) {
+		} else if (number < 1000) {
 			numWord = hundredsPlaceConvert(number);
+		} else {
+			numWord = thousandsPlaceConvert(number);
 		}
 		return numWord;
 	}
@@ -81,6 +83,16 @@ public class NumbersToWords {
 			int tensPlace = number % 100;
 			result = lessThanTwentyConvert(hundredsPlace) + " hundred and " + tensPlaceConvert(tensPlace);
 		}
+		return result;
+	}
+	
+	private static String thousandsPlaceConvert(int number) {
+		String result = "";
+		
+		int thousandsPlace = number / 1000;
+		int remainder = number % 1000;
+		result = numbersToWords(thousandsPlace) + " thousand "+hundredsPlaceConvert(remainder);
+		
 		return result;
 	}
 }
