@@ -41,4 +41,5 @@ public class NumbersToWordsTest {
 	public void method_returns_thirty_one_thousand_for_31000() {
 		Assert.assertEquals("thirty-one thousand", NumbersToWords.numbersToWords(31000));
 	}
+	
 }

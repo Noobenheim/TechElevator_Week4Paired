@@ -16,7 +16,7 @@ public class NumbersToWords {
 		} else {
 			numWord = thousandsPlaceConvert(number);
 		}
-		return numWord;
+		return numWord.trim();
 	}
 	
 	private static String lessThanTwentyConvert(int number) {
