@@ -16,4 +16,8 @@ public class NumbersToWordsTest {
 	public void method_returns_two_for_2() {
 		Assert.assertEquals("two", NumbersToWords.numbersToWords(2));
 	}
+	@Test
+	public void method_returns_thirty_nine_for_39() {
+		Assert.assertEquals("thirty-nine", NumbersToWords.numbersToWords(39));
+	}
 }
