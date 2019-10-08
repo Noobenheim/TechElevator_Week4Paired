@@ -8,4 +8,8 @@ public class NumbersToWordsTest {
 	public void method_returns_zero_for_0() {
 		Assert.assertEquals("zero", NumbersToWords.numbersToWords(0));
 	}
+	@Test
+	public void method_returns_one_for_1() {
+		Assert.assertEquals("one", NumbersToWords.numbersToWords(1));
+	}
 }
