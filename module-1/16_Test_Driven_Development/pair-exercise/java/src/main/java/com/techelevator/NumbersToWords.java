@@ -7,7 +7,9 @@ public class NumbersToWords {
 			numWord = "zero";
 		} else if( number == 1 ) {
 			numWord = "one";
-		}
+		} else if( number == 2 ) {
+			numWord = "two";
+		} 
 		return numWord;
 	}
 }
