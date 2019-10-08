@@ -28,4 +28,9 @@ public class NumbersToWordsTest {
 	public void method_returns_three_hundred_forty_eight_for_348() {
 		Assert.assertEquals("three hundred and forty-eight", NumbersToWords.numbersToWords(348));
 	}
+	
+	@Test
+	public void method_returns_nine_thousand_three_hundred_forty_seven_for_9347() {
+		Assert.assertEquals("nine thousand three hundred and forty-seven", NumbersToWords.numbersToWords(9347));
+	}
 }
