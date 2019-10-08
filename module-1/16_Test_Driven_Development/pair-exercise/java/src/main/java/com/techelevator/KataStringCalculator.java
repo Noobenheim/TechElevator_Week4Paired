@@ -6,34 +6,33 @@ import java.util.List;
 
 public class KataStringCalculator {
 	public static int add(String numbers) {
-		int sum = 0;
+		int result = 0;
+		String numString = "";
+		
 		List<String> splitNumbersList = new ArrayList<>();
 		
-		if (numbers.startsWith("//") && numbers.length() > 5) {
-			char delimiter = numbers.charAt(2);
-			numbers.replace(delimiter, ',');
-			numbers = numbers.substring(5);
-		} 
+		String oneLine = numbers.replaceAll("\n", ",");
 		
-		if (numbers.contains("\n")) {
-			numbers.replaceAll("\n", ",");
+		if (oneLine.startsWith("//")) {
+			char delimiter = oneLine.charAt(2);
+			String noDelim = oneLine.substring(4).replace(delimiter, ',');
+			numString += noDelim;
+		} else {
+			numString += oneLine;
 		}
 		 
-		String[] commaSplits = numbers.split(",");
+		String[] commaSplits = numString.split(",");
 		splitNumbersList.addAll(Arrays.asList(commaSplits));
 		
-		if (numbers.trim().equals("")) {
-			return 0;
+		if (numbers.equals("")) {
+			return result;
 		} else if (splitNumbersList.size() > 0) {
-			int result = 0;
 			for (String num : splitNumbersList) {
-				int strNumber = Integer.parseInt(num.trim());
+				int strNumber = Integer.parseInt(num);
 				result += strNumber;
 			}
-			return result;
 		}
-
-		return -1;
+		return result;
 	}
 
 }

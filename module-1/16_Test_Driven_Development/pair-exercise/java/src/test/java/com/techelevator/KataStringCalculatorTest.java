@@ -21,14 +21,14 @@ public class KataStringCalculatorTest {
 
 	@Test
 	public void calculator_returns_sum_of_two_numbers_in_string() {
-		String inputString = "2, 3";
+		String inputString = "2,3";
 		int expectedReturn = 5;
 		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
 	}
 	
 	@Test
 	public void calculator_returns_sum_of_three_numbers_in_string() {
-		String inputString = "5, 7, 12";
+		String inputString = "5,7,12";
 		int expectedReturn = 24;
 		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
 	}
@@ -42,7 +42,7 @@ public class KataStringCalculatorTest {
 	
 	@Test
 	public void calculator_works_when_numbers_are_split_by_custom_delimiter() {
-		String inputString = "//;\\n1;2";
+		String inputString = "//;\n1;2";
 		int expectedReturn = 3;
 		Assert.assertEquals(expectedReturn, KataStringCalculator.add(inputString));
 	}
