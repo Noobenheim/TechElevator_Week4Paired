@@ -45,4 +45,8 @@ public class NumbersToWordsTest {
 	public void method_returns_nine_hundred_thousand_and_one_for_900001() {
 		Assert.assertEquals("nine hundred thousand and one", NumbersToWords.numbersToWords(900001));
 	}
+	@Test
+	public void method_returns_one_million_for_1000000() {
+		Assert.assertEquals("one million", NumbersToWords.numbersToWords(1_000_000));
+	}
 }
