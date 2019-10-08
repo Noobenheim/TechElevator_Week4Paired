@@ -9,8 +9,10 @@ public class NumbersToWords {
 		String numWord = "";
 		if( number < 20 ) {
 			numWord = lessThanTwentyConvert(number);
-		} else {
+		} else if ( number < 100 ) {
 			numWord = tensPlaceConvert(number);
+		} else if (number > 100) {
+			numWord = hundredsPlaceConvert(number);
 		}
 		return numWord;
 	}
@@ -70,5 +72,15 @@ public class NumbersToWords {
 		}
 		
 		return "";
+	}
+	
+	private static String hundredsPlaceConvert(int number) {
+		String result = "";
+		if (number >= 100) {
+			int hundredsPlace = number / 100;
+			int tensPlace = number % 100;
+			result = lessThanTwentyConvert(hundredsPlace) + " hundred and " + tensPlaceConvert(tensPlace);
+		}
+		return result;
 	}
 }
