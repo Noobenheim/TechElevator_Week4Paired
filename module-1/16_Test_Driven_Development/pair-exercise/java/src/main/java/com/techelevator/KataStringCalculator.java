@@ -1,38 +1,30 @@
 package com.techelevator;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
 public class KataStringCalculator {
 	public static int add(String numbers) {
-		int result = 0;
-		String numString = "";
+		int result = 0; // the result to return
 		
-		List<String> splitNumbersList = new ArrayList<>();
+		String delimReg = "[\n"; // begin delimiter regular expression
 		
-		String oneLine = numbers.replaceAll("\n", ",");
-		
-		if (oneLine.startsWith("//")) {
-			char delimiter = oneLine.charAt(2);
-			String noDelim = oneLine.substring(4).replace(delimiter, ',');
-			numString += noDelim;
-		} else {
-			numString += oneLine;
+		if( numbers.startsWith("//") ) {
+			delimReg += numbers.charAt(2); // add custom delimiter to end
+			numbers = numbers.substring(3); // substring to remove the // and custom delimiter
 		}
-		 
-		String[] commaSplits = numString.split(",");
-		splitNumbersList.addAll(Arrays.asList(commaSplits));
 		
-		if (numbers.equals("")) {
-			return result;
-		} else if (splitNumbersList.size() > 0) {
-			for (String num : splitNumbersList) {
-				int strNumber = Integer.parseInt(num);
-				result += strNumber;
+		delimReg += "]"; // end delimiter 
+		
+		numbers = numbers.replaceAll(delimReg, ","); // replace \n and possibly custom delimiter with a comma
+		
+		String[] splitNumbers = numbers.split(","); // split by , into array
+		
+		for( String num : splitNumbers ) { // cycle through array
+			num = num.trim(); // trim the string to make sure no spaces
+			if( !num.equals("") ) { // make sure the string isn't empty
+				result += Integer.parseInt(num); // add the num to result
 			}
 		}
-		return result;
+		
+		return result; // return result
 	}
 
 }
