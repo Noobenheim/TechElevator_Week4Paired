@@ -1,6 +1,8 @@
 package com.techelevator;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -14,7 +16,7 @@ public class NumbersToWords {
 		} else if (number < 1000) {
 			numWord = hundredsPlaceConvert(number);
 		} else {
-			numWord = thousandsPlaceConvert(number);
+			numWord = higherPlaceConvert(number);
 		}
 		return numWord.trim();
 	}
@@ -78,20 +80,43 @@ public class NumbersToWords {
 	
 	private static String hundredsPlaceConvert(int number) {
 		String result = "";
-		if (number >= 100) {
-			int hundredsPlace = number / 100;
-			int tensPlace = number % 100;
-			result = lessThanTwentyConvert(hundredsPlace) + " hundred and " + tensPlaceConvert(tensPlace);
+		int hundredsPlace = number / 100;
+		int tensPlace = number % 100;
+		if( hundredsPlace > 0 ) {
+			result = lessThanTwentyConvert(hundredsPlace) + " hundred";
+		}
+		if( tensPlace > 0 ) {
+			result += " and " + tensPlaceConvert(tensPlace);
 		}
 		return result;
 	}
 	
-	private static String thousandsPlaceConvert(int number) {
+	private static String higherPlaceConvert(int number) {
+		List<String> place = new ArrayList<>();
+		place.add("thousand");
+		place.add("million");
+		place.add("billion");
+		
+		int index = -1;
+		int tempNumber = number;
+		while( tempNumber > 0 ) {
+			tempNumber /= 1000;
+			if( tempNumber > 0 ) {
+				index++;
+			}
+		}
+		
 		String result = "";
 		
 		int thousandsPlace = number / 1000;
 		int remainder = number % 1000;
-		result = numbersToWords(thousandsPlace) + " thousand "+hundredsPlaceConvert(remainder);
+		result = numbersToWords(thousandsPlace) + " " + place.get(index);
+		if( remainder > 0 ) {
+			if( remainder/100 == 0 ) {
+				result += " and";
+			}
+			result += " "+numbersToWords(remainder);
+		}
 		
 		return result;
 	}
