@@ -20,4 +20,12 @@ public class NumbersToWordsTest {
 	public void method_returns_thirty_nine_for_39() {
 		Assert.assertEquals("thirty-nine", NumbersToWords.numbersToWords(39));
 	}
+	@Test
+	public void method_returns_fifty_for_50() {
+		Assert.assertEquals("fifty", NumbersToWords.numbersToWords(50));
+	}
+	@Test
+	public void method_returns_three_hundred_forty_eight_for_348() {
+		Assert.assertEquals("three hundred and forty-eight", NumbersToWords.numbersToWords(348));
+	}
 }
