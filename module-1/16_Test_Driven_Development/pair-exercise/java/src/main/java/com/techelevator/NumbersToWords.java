@@ -9,6 +9,8 @@ public class NumbersToWords {
 		String numWord = "";
 		if( number < 20 ) {
 			numWord = lessThanTwentyConvert(number);
+		} else {
+			numWord = tensPlaceConvert(number);
 		}
 		return numWord;
 	}
@@ -39,6 +41,31 @@ public class NumbersToWords {
 		for( Entry<Integer, String> entry : map.entrySet() ) {
 			if( entry.getKey() == number ) {
 				return entry.getValue();
+			}
+		}
+		
+		return "";
+	}
+	
+	private static String tensPlaceConvert(int number) {
+		Map<Integer,String> map = new HashMap<>();
+		map.put(20, "twenty");
+		map.put(30, "thirty");
+		map.put(40, "forty");
+		map.put(50, "fifty");
+		map.put(60, "sixty");
+		map.put(70, "seventy");
+		map.put(80, "eighty");
+		map.put(90, "ninety");
+		
+		for( Entry<Integer,String> entry : map.entrySet() ) {
+			int difference = number - entry.getKey();
+			if( difference >= 0 && difference <= 9 ) {
+				String result = entry.getValue();
+				if( difference > 0 ) {
+					result += "-"+lessThanTwentyConvert(difference);
+				}
+				return result;
 			}
 		}
 		
