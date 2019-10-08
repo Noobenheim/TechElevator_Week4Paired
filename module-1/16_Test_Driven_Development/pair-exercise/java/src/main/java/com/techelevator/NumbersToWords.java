@@ -108,8 +108,10 @@ public class NumbersToWords {
 		
 		String result = "";
 		
-		int thousandsPlace = number / 1000;
-		int remainder = number % 1000;
+		int power = (int)Math.pow(1000, index+1);
+		
+		int thousandsPlace = number / power;
+		int remainder = number % power;
 		result = numbersToWords(thousandsPlace) + " " + place.get(index);
 		if( remainder > 0 ) {
 			if( remainder/100 == 0 ) {
