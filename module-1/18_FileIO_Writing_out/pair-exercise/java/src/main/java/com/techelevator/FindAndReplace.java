@@ -24,8 +24,15 @@ public class FindAndReplace {
 		boolean caseSensitive = false;
 		boolean fileOverwriteConfirmation = false;
 		
-		System.out.print("What word do you want to replace? ");
-		searchFor = inputScanner.nextLine();
+		do {
+			System.out.print("What word do you want to replace? ");
+			searchFor = inputScanner.nextLine();
+			
+			if( searchFor.equals("") ) {
+				System.out.println("Search cannot be empty.");
+			}
+		} while( searchFor.equals("") );
+		
 		System.out.print("What do you want to replace \""+searchFor+"\" with? " );
 		replaceWith = inputScanner.nextLine();
 		
